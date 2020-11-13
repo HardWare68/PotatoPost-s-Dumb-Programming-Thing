@@ -14,7 +14,7 @@ class Main {
       System.out.println("Done!");
     }
 
-    OtherFile newOther = new OtherFile();
+    MathStuff mathStuff = new MathStuff();
     Scanner scan = new Scanner(System.in);
     long thingy; //this is the thing the scanner object uses to get the input
     long adder; //this is what we add (look at case 2)
@@ -27,13 +27,13 @@ class Main {
         case 1:
           System.out.println("\nEnter a number:");
           thingy = scan.nextLong();
-          newOther.setValue(thingy, 1);
+          mathStuff.setValue(thingy, 1);
 
           System.out.println("\nEnter another number:");
           thingy = scan.nextLong();
-          newOther.setValue(thingy, 2);
+          mathStuff.setValue(thingy, 2);
 
-          imStupid = newOther.x + newOther.y;
+          imStupid = mathStuff.x + mathStuff.y;
           System.out.println("\nThe two numbers added together are: " + imStupid);
           break;
 
@@ -42,15 +42,15 @@ class Main {
           thingy = scan.nextLong(); //thingy is the scanner object to get input
           System.out.println("\nWhat number do you want to add by?");
           adder = scan.nextLong(); //adder adds the number, or something
-          newOther.thisFunctionThatIUseAlot(thingy, adder, 1);
+          mathStuff.thisFunctionThatIUseAlot(thingy, adder, 1);
 
           System.out.println("\nEnter another number:");
           thingy = scan.nextInt();
           System.out.println("\nWhat Number do you want to add by?");
           adder = scan.nextInt();
-          newOther.thisFunctionThatIUseAlot(thingy, adder, 2);
+          mathStuff.thisFunctionThatIUseAlot(thingy, adder, 2);
 
-          imStupid = newOther.x + newOther.y;
+          imStupid = mathStuff.x + mathStuff.y;
           System.out.println("The two numbers added together are: " + imStupid);
           break;
 

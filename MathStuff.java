@@ -1,4 +1,4 @@
-public class OtherFile{
+public class MathStuff{
   long x;
   long y;
   //TYPE 1 = X, TYPE 2 = Y
