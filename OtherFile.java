@@ -1,9 +1,9 @@
 public class OtherFile{
-  int x;
-  int y;
+  long x;
+  long y;
   //TYPE 1 = X, TYPE 2 = Y
 
-  public void setValue(int valArg, int type){
+  public void setValue(long valArg, int type){
     switch(type){
       case 1:
         x = valArg;
@@ -15,7 +15,7 @@ public class OtherFile{
     }
   }
 
-  public void addNumber(int addNum, int type){
+  public void addNumber(long addNum, int type){
     switch(type){
       case 1:
         x = x + addNum;
@@ -27,7 +27,7 @@ public class OtherFile{
     }
   }
 
-  public void thisFunctionThatIUseAlot(int valArg, int addNum, int type){ //I use this function a lot
+  public void thisFunctionThatIUseAlot(long valArg, long addNum, int type){ //I use this function a lot
     setValue(valArg, type);
     addNumber(addNum, type);
     getValue(type);
