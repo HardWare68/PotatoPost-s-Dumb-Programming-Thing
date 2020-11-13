@@ -27,7 +27,7 @@ public class MathStuff{
     }
   }
 
-  public void thisFunctionThatIUseAlot(long valArg, long addNum, int type){ //I use this function a lot
+  public void thisFunctionThatIUseALot(long valArg, long addNum, int type){ //I use this function a lot
     setValue(valArg, type);
     addNumber(addNum, type);
     getValue(type);
