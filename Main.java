@@ -69,8 +69,7 @@ class Main {
           switch(programType){
             case 1:
               System.out.println("Enter a string: ");
-              stringThing = scan.nextLine();
-
+              stringThing = scan.next();
               stringJazz.thisIsBad(stringThing);
               break;
           }
