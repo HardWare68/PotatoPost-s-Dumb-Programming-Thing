@@ -1,9 +1,10 @@
 import java.util.Scanner;
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 class Main {
   public static void main(String[] args) {
     System.out.println("Welcome to PotatoPost's dumb programming thing!");
-    System.out.println("Version 4.0: Now with loops!");
     System.out.println("Loading..."); // this doesnt actually load anything, i just do it so it looks cool lmao
 
     try {
@@ -17,6 +18,7 @@ class Main {
     MathStuff mathStuff = new MathStuff();
     Scanner scan = new Scanner(System.in);
     StringJazz stringJazz = new StringJazz();
+
     long userInput; // this is the thing the scanner object uses to get the input
     long adder; // this is what we add (look at case 2)
     long imStupid; // this variable is because i was stupid and concatenated two numbers together.
@@ -77,13 +79,20 @@ class Main {
 
         case 2:
           System.out.println(
-              "\nSelect what you want to do (Enter the number):\n1.)Idk how to describe this one, it just yells at you a bunch");
+              "\nSelect what you want to do (Enter the number):\n1.)Idk how to describe this one, it just yells at you a bunch\n2.)Display the date");
           programType = scan.nextByte();
           switch (programType) {
           case 1:
             System.out.println("\nEnter a string: ");
             stringThing = scan.next();
             stringJazz.yellFunction(stringThing);
+            break;
+
+          case 2:
+            LocalDate todayDate = LocalDate.now();
+            System.out.println("\nToday's date is: " + todayDate);
+            LocalTime todayTime = LocalTime.now();
+            System.out.println("The time is: " + todayTime);
             break;
           }
         }
