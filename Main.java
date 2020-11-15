@@ -30,7 +30,7 @@ class Main {
         programType = scan.nextByte();
         switch(programType){
           case 1:
-            System.out.println("\nSelect what you want to do (Enter the number):\n1.)Add two numbers\n2.)Add two numbers, but even cooler");
+            System.out.println("\nSelect what you want to do (Enter the number):\n1.)Add two numbers\n2.)Add two numbers, but even cooler\n3.)Multiply two numbers");
             programType = scan.nextByte();
             switch(programType){
               case 1:
@@ -51,17 +51,26 @@ class Main {
                 thingy = scan.nextLong(); //thingy is the scanner object to get input
                 System.out.println("\nWhat number do you want to add by?");
                 adder = scan.nextLong(); //adder adds the number, or something
-                mathStuff.thisFunctionThatIUseAlot(thingy, adder, 1);
+                mathStuff.thisFunctionThatIUseALot(thingy, adder, 1);
 
                 System.out.println("\nEnter another number:");
-                thingy = scan.nextInt();
+                thingy = scan.nextLong();
                 System.out.println("\nWhat Number do you want to add by?");
-                adder = scan.nextInt();
-                mathStuff.thisFunctionThatIUseAlot(thingy, adder, 2);
+                adder = scan.nextLong();
+                mathStuff.thisFunctionThatIUseALot(thingy, adder, 2);
 
                 imStupid = mathStuff.x + mathStuff.y;
                 System.out.println("The two numbers added together are: " + imStupid);
                 break;
+
+                case 3:
+                  System.out.println("\nEnter a number:");
+                  mathStuff.x = scan.nextLong();
+                  System.out.println("\nEnter another number:");
+                  mathStuff.y = scan.nextLong();
+                  mathStuff.multiplyNumber();
+                  System.out.println(mathStuff.x);
+                  mathStuff.x = mathStuff.temp;
             }
             break;
 

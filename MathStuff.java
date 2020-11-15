@@ -1,6 +1,7 @@
 public class MathStuff{
   long x;
   long y;
+  long temp;
   //TYPE 1 = X, TYPE 2 = Y
 
   public void setValue(long valArg, int type){
@@ -31,6 +32,11 @@ public class MathStuff{
     setValue(valArg, type);
     addNumber(addNum, type);
     getValue(type);
+  }
+
+  public void multiplyNumber(){
+    temp = x;
+    x = x * y;
   }
 
   public void getValue(int type){
