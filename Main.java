@@ -32,7 +32,7 @@ class Main {
         programType = scan.nextByte();
         switch (programType) {
         case 1:
-          System.out.println("\nSelect what you want to do (Enter the number):\n1.)Add two numbers\n2.)Add two numbers, but even cooler\n3.)Multiply two numbers");
+          System.out.println("\nSelect what you want to do (Enter the number):\n1.)Add two numbers\n2.)Add two numbers, but even cooler\n3.)Multiply two numbers\n4.)Summation");
           programType = scan.nextByte();
           switch (programType) {
             case 1:
@@ -73,6 +73,12 @@ class Main {
               mathStuff.multiplyNumber();
               System.out.println(mathStuff.x);
               mathStuff.x = mathStuff.temp;
+              break;
+
+            case 4:
+              System.out.println("\nWhat number do you want to add up to?");
+              mathStuff.summation(scan.nextInt());
+              System.out.println("All integers from 0 to that number added up is: " + mathStuff.x);
               break;
           }
           break;

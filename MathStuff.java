@@ -28,6 +28,13 @@ public class MathStuff{
     }
   }
 
+  public void summation(int sumNum){
+    x = 0;
+    for(int i = 0; i < sumNum+1; i++){
+      x = x + i;
+    }
+  }
+
   public void thisFunctionThatIUseALot(long valArg, long addNum, int type){ //I use this function a lot
     setValue(valArg, type);
     addNumber(addNum, type);
