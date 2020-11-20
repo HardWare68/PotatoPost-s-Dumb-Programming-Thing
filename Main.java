@@ -85,7 +85,7 @@ class Main {
 
         case 2:
           System.out.println(
-              "\nSelect what you want to do (Enter the number):\n1.)Idk how to describe this one, it just yells at you a bunch\n2.)Display the date");
+              "\nSelect what you want to do (Enter the number):\n1.)Idk how to describe this one, it just yells at you a bunch\n2.)Display the date\n3.)Prints a random thing that I would say");
           programType = scan.nextByte();
           switch (programType) {
           case 1:
@@ -99,6 +99,10 @@ class Main {
             System.out.println("\nToday's date is: " + todayDate);
             LocalTime todayTime = LocalTime.now();
             System.out.println("The time is: " + todayTime);
+            break;
+
+          case 3:
+            stringJazz.randomSayings();
             break;
           }
         }
