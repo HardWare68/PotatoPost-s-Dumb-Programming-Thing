@@ -18,6 +18,7 @@ class Main {
     MathStuff mathStuff = new MathStuff();
     Scanner scan = new Scanner(System.in);
     StringJazz stringJazz = new StringJazz();
+    GameThing gameThing = new GameThing();
 
     long userInput; // this is the thing the scanner object uses to get the input
     long adder; // this is what we add (look at case 2)
@@ -28,7 +29,7 @@ class Main {
 
     try {
       while (continueLoop) {
-        System.out.println("\nSelect what you want to do (Enter the number):\n1.)Calculator Stuff\n2.)Cool Things with Strings™");
+        System.out.println("\nSelect what you want to do (Enter the number):\n1.)Calculator Stuff\n2.)Cool Things with Strings™\n3.)Epic Gaming");
         programType = scan.nextByte();
         switch (programType) {
         case 1:
@@ -84,8 +85,7 @@ class Main {
           break;
 
         case 2:
-          System.out.println(
-              "\nSelect what you want to do (Enter the number):\n1.)Idk how to describe this one, it just yells at you a bunch\n2.)Display the date\n3.)Prints a random thing that I would say");
+          System.out.println("\nSelect what you want to do (Enter the number):\n1.)Idk how to describe this one, it just yells at you a bunch\n2.)Display the date\n3.)Prints a random thing that I would say");
           programType = scan.nextByte();
           switch (programType) {
           case 1:
@@ -105,6 +105,17 @@ class Main {
             stringJazz.randomSayings();
             break;
           }
+          break;
+
+          case 3:
+          System.out.println("\nSelect what you want to do (Enter the number):\n1.)Play Tic-Tac-Toe!");
+          programType = scan.nextByte();
+          switch(programType){
+            case 1:
+              gameThing.ticTacToe();
+              break;
+          }
+          break;
         }
         System.out.println("If you want to continue, type \"true\". Otherwise, type \"false\".");
         continueLoop = scan.nextBoolean();
