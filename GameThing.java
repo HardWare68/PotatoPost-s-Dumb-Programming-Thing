@@ -85,39 +85,40 @@ public class GameThing{
 
   public void isGameWonFunction(){
     //if first row is equal
-    if(ticTacToeBoard[0][0] == ticTacToeBoard[0][1] && ticTacToeBoard[0][1] == ticTacToeBoard[0][2] && ticTacToeBoard[0][0] == ticTacToeBoard[0][2]){
+    if(ticTacToeBoard[0][0] == ticTacToeBoard[0][1] && ticTacToeBoard[0][1] == ticTacToeBoard[0][2] && ticTacToeBoard[0][0] == ticTacToeBoard[0][2] && ticTacToeBoard[0][0] != "" && ticTacToeBoard[0][1] != "" && ticTacToeBoard[0][2] != ""){
       isGameWonVar = true;
     }
     //if second row is equal
-    else if(ticTacToeBoard[1][0] == ticTacToeBoard[1][1] && ticTacToeBoard[1][1] == ticTacToeBoard[1][2] && ticTacToeBoard[1][0] == ticTacToeBoard[1][2]){
+    else if(ticTacToeBoard[1][0] == ticTacToeBoard[1][1] && ticTacToeBoard[1][1] == ticTacToeBoard[1][2] && ticTacToeBoard[1][0] == ticTacToeBoard[1][2] && ticTacToeBoard[1][0] != "" && ticTacToeBoard[1][1] != "" && ticTacToeBoard[1][2] != ""){
       isGameWonVar = true;
     }
     //if third row is equal
-    else if(ticTacToeBoard[2][0] == ticTacToeBoard[2][1] && ticTacToeBoard[2][1] == ticTacToeBoard[2][2] && ticTacToeBoard[2][0] == ticTacToeBoard[2][2]){
+    else if(ticTacToeBoard[2][0] == ticTacToeBoard[2][1] && ticTacToeBoard[2][1] == ticTacToeBoard[2][2] && ticTacToeBoard[2][0] == ticTacToeBoard[2][2] && ticTacToeBoard[2][0] != "" && ticTacToeBoard[2][1] != "" && ticTacToeBoard[2][2] != ""){
       isGameWonVar = true;
     }
     //if first column is equal
-    else if(ticTacToeBoard[0][0] == ticTacToeBoard[1][0] && ticTacToeBoard[1][0] == ticTacToeBoard[2][0] && ticTacToeBoard[0][0] == ticTacToeBoard[2][0]){
+    else if(ticTacToeBoard[0][0] == ticTacToeBoard[1][0] && ticTacToeBoard[1][0] == ticTacToeBoard[2][0] && ticTacToeBoard[0][0] == ticTacToeBoard[2][0] && ticTacToeBoard[0][0] != "" && ticTacToeBoard[1][0] != "" && ticTacToeBoard[2][0] != ""){
       isGameWonVar = true;
     }
     //if second column is equal
-    else if(ticTacToeBoard[0][1] == ticTacToeBoard[1][1] && ticTacToeBoard[1][1] == ticTacToeBoard[2][1] && ticTacToeBoard[0][1] == ticTacToeBoard[2][1]){
+    else if(ticTacToeBoard[0][1] == ticTacToeBoard[1][1] && ticTacToeBoard[1][1] == ticTacToeBoard[2][1] && ticTacToeBoard[0][1] == ticTacToeBoard[2][1] && ticTacToeBoard[0][1] != "" && ticTacToeBoard[1][1] != "" && ticTacToeBoard[2][1] != ""){
       isGameWonVar = true;
     }
     //if third column is equal
-    else if(ticTacToeBoard[0][2] == ticTacToeBoard[1][2] && ticTacToeBoard[1][2] == ticTacToeBoard[2][2] && ticTacToeBoard[0][2] == ticTacToeBoard[2][2]){
+    else if(ticTacToeBoard[0][2] == ticTacToeBoard[1][2] && ticTacToeBoard[1][2] == ticTacToeBoard[2][2] && ticTacToeBoard[0][2] == ticTacToeBoard[2][2] && ticTacToeBoard[0][2] != "" && ticTacToeBoard[1][2] != "" && ticTacToeBoard[2][2] != ""){
       isGameWonVar = true;
     }
     //if top-left to bottom-right diagonal is equal
-    else if(ticTacToeBoard[0][0] == ticTacToeBoard[1][1] && ticTacToeBoard[1][1] == ticTacToeBoard[2][2] && ticTacToeBoard[0][0] == ticTacToeBoard[2][2]){
+    else if(ticTacToeBoard[0][0] == ticTacToeBoard[1][1] && ticTacToeBoard[1][1] == ticTacToeBoard[2][2] && ticTacToeBoard[0][0] == ticTacToeBoard[2][2] && ticTacToeBoard[0][0] != "" && ticTacToeBoard[1][1] != "" && ticTacToeBoard[2][2] != ""){
       isGameWonVar = true;
     }
     //if top-right to bottom-left diagonal is equal
-    else if(ticTacToeBoard[0][2] == ticTacToeBoard[1][1] && ticTacToeBoard[1][1] == ticTacToeBoard[2][0] && ticTacToeBoard[0][2] == ticTacToeBoard[2][0]){
+    else if(ticTacToeBoard[0][2] == ticTacToeBoard[1][1] && ticTacToeBoard[1][1] == ticTacToeBoard[2][0] && ticTacToeBoard[0][2] == ticTacToeBoard[2][0] && ticTacToeBoard[0][2] != "" && ticTacToeBoard[1][1] != "" && ticTacToeBoard[2][0] != ""){
       isGameWonVar = true;
     }
     else{
       isGameWonVar = false;
     }
+    //im so sorry to all my programming friends who had to scroll through a thousand if statements
   }  
 }
