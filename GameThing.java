@@ -64,6 +64,16 @@ public class GameThing{
 
         //check if anyone has won
         isGameWonFunction();
+
+        //reset the legality stuff, because otherwise it gets caught in a loop
+        isLegalMoveVar = false;
+      }
+
+      //someone won!
+      if(playerTurn == 1){
+        System.out.println("Player 2 has won!");
+      } else {
+        System.out.println("Player 1 has won!");
       }
     }
 
