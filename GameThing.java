@@ -79,9 +79,13 @@ public class GameThing{
     }
 
   public void isLegalMove(int[] nextMoveParam){
-    if(ticTacToeBoard[nextMoveParam[0]][nextMoveParam[1]] == ""){
-      isLegalMoveVar = true;
-    } else {
+    try{
+      if(ticTacToeBoard[nextMoveParam[0]][nextMoveParam[1]] == ""){
+        isLegalMoveVar = true;
+      } else {
+        isLegalMoveVar = false;
+      }
+    } catch (ArrayIndexOutOfBoundsException e){
       isLegalMoveVar = false;
     }
   }
