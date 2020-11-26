@@ -91,11 +91,11 @@ public class GameThing{
   }
 
   public void printBoard(){
-    System.out.println(ticTacToeBoard[0][0] + " | " + ticTacToeBoard[0][1] + " | " + ticTacToeBoard[0][2] + " | ");
+    System.out.println(ticTacToeBoard[0][0] + " | " + ticTacToeBoard[0][1] + " | " + ticTacToeBoard[0][2]);
     System.out.println("---------");
-    System.out.println(ticTacToeBoard[1][0] + " | " + ticTacToeBoard[1][1] + " | " + ticTacToeBoard[1][2] + " | ");
+    System.out.println(ticTacToeBoard[1][0] + " | " + ticTacToeBoard[1][1] + " | " + ticTacToeBoard[1][2]);
     System.out.println("---------");
-    System.out.println(ticTacToeBoard[2][0] + " | " + ticTacToeBoard[2][1] + " | " + ticTacToeBoard[2][2] + " | ");
+    System.out.println(ticTacToeBoard[2][0] + " | " + ticTacToeBoard[2][1] + " | " + ticTacToeBoard[2][2]);
   }
 
   public void isGameWonFunction(){
