@@ -18,6 +18,7 @@ class Main {
     MathStuff mathStuff = new MathStuff();
     Scanner scan = new Scanner(System.in);
     StringJazz stringJazz = new StringJazz();
+    GameThing gameThing = new GameThing();
 
     long userInput; // this is the thing the scanner object uses to get the input
     long adder; // this is what we add (look at case 2)
@@ -28,7 +29,7 @@ class Main {
 
     try {
       while (continueLoop) {
-        System.out.println("\nSelect what you want to do (Enter the number):\n1.)Calculator Stuff\n2.)Cool Things with Strings™");
+        System.out.println("\nSelect what you want to do (Enter the number):\n1.)Calculator Stuff\n2.)Cool Things with Strings™\n3.)Epic Gaming");
         programType = scan.nextByte();
         switch (programType) {
         case 1:
@@ -50,9 +51,9 @@ class Main {
 
             case 2:
               System.out.println("\nEnter a number:");
-              userInput = scan.nextLong(); //userInput is the scanner object to get input
+              userInput = scan.nextLong();
               System.out.println("\nWhat number do you want to add by?");
-              adder = scan.nextLong(); // adder adds the number, or something
+              adder = scan.nextLong();
               mathStuff.thisFunctionThatIUseALot(userInput, adder, 1);
 
               System.out.println("\nEnter another number:");
@@ -84,9 +85,13 @@ class Main {
           break;
 
         case 2:
-          System.out.println(
-              "\nSelect what you want to do (Enter the number):\n1.)Idk how to describe this one, it just yells at you a bunch\n2.)Display the date\n3.)Prints a random thing that I would say");
-          programType = scan.nextByte();
+          System.out.println("\nSelect what you want to do (Enter the number):\n1.)Idk how to describe this one, it just yells at you a bunch\n2.)Display the date\n3.)Prints a random thing that I would say");
+          try{
+            programType = scan.nextByte();
+          } catch (Exception InputMismatchException){
+            System.out.println("Incorrect input type. Defaulting to case 1...");
+            programType = 1;
+          }
           switch (programType) {
           case 1:
             System.out.println("\nEnter a string: ");
@@ -105,6 +110,22 @@ class Main {
             stringJazz.randomSayings();
             break;
           }
+          break;
+
+          case 3:
+          System.out.println("\nSelect what you want to do (Enter the number):\n1.)Play Tic-Tac-Toe!");
+          try{
+            programType = scan.nextByte();
+          } catch (Exception InputMismatchException){
+            System.out.println("Incorrect input type. Defaulting to case 1...");
+            programType = 1;
+          }
+          switch(programType){
+            case 1:
+              gameThing.ticTacToe();
+              break;
+          }
+          break;
         }
         System.out.println("If you want to continue, type \"true\". Otherwise, type \"false\".");
         continueLoop = scan.nextBoolean();
