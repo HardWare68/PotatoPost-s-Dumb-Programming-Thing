@@ -26,44 +26,23 @@ class Main {
     byte programType; // this variable is used to determine what the program is gonna do. like, you know, it chooses the stuff. you know.
     String stringThing = ""; // its a string thing
     boolean continueLoop = true; // determines if we want to continue the loop or not
-    String sexCheck = ""; //used for performing sex checks. please dont ask about this.
 
     try {
       while (continueLoop) {
         System.out.println("\nSelect what you want to do (Enter the number):\n1.)Calculator Stuff\n2.)Cool Things with Strings™\n3.)Epic Gaming");
-        try{
-          programType = scan.nextByte();
-        } catch (Exception InputMismatchException){
-          System.out.println("Incorrect input type. Defaulting to case 1...");
-          programType = 1;
-        }
+        programType = scan.nextByte();
         switch (programType) {
         case 1:
           System.out.println("\nSelect what you want to do (Enter the number):\n1.)Add two numbers\n2.)Add two numbers, but even cooler\n3.)Multiply two numbers\n4.)Summation");
-          try{
-            programType = scan.nextByte();
-          } catch (Exception InputMismatchException){
-            System.out.println("Incorrect input type. Defaulting to case 1...");
-            programType = 1;
-          }
+          programType = scan.nextByte();
           switch (programType) {
             case 1:
               System.out.println("\nEnter a number:");
-              try{
-                userInput = scan.nextLong();
-               } catch (Exception InputMismatchException){
-                System.out.println("Incorrect input type. Defaulting to 1...");
-                userInput = 1;
-               }
+              userInput = scan.nextLong();
               mathStuff.setValue(userInput, 1);
 
               System.out.println("\nEnter another number:");
-              try{
-                userInput = scan.nextLong();
-               } catch (Exception InputMismatchException){
-                System.out.println("Incorrect input type. Defaulting to 1...");
-                userInput = 1;
-               }
+              userInput = scan.nextLong();
               mathStuff.setValue(userInput, 2);
 
               imStupid = mathStuff.x + mathStuff.y;
@@ -72,35 +51,15 @@ class Main {
 
             case 2:
               System.out.println("\nEnter a number:");
-              try{
-                userInput = scan.nextLong();
-               } catch (Exception InputMismatchException){
-                System.out.println("Incorrect input type. Defaulting to 1...");
-                userInput = 1;
-               }
+              userInput = scan.nextLong();
               System.out.println("\nWhat number do you want to add by?");
-              try{
-                adder = scan.nextLong();
-               } catch (Exception InputMismatchException){
-                System.out.println("Incorrect input type. Defaulting to 1...");
-                adder = 1;
-               }
+              adder = scan.nextLong();
               mathStuff.thisFunctionThatIUseALot(userInput, adder, 1);
 
               System.out.println("\nEnter another number:");
-              try{
-                userInput = scan.nextLong();
-               } catch (Exception InputMismatchException){
-                System.out.println("Incorrect input type. Defaulting to 1...");
-                userInput = 1;
-               }
+              userInput = scan.nextLong();
               System.out.println("\nWhat Number do you want to add by?");
-              try{
-                adder = scan.nextLong();
-               } catch (Exception InputMismatchException){
-                System.out.println("Incorrect input type. Defaulting to 1...");
-                adder = 1;
-               }
+              adder = scan.nextLong();
               mathStuff.thisFunctionThatIUseALot(userInput, adder, 2);
 
               imStupid = mathStuff.x + mathStuff.y;
@@ -109,19 +68,9 @@ class Main {
 
             case 3:
               System.out.println("\nEnter a number:");
-              try{
-                mathStuff.x = scan.nextLong();
-               } catch (Exception InputMismatchException){
-                System.out.println("Incorrect input type. Defaulting to 1...");
-                mathStuff.x = 1;
-               }
+              mathStuff.x = scan.nextLong();
               System.out.println("\nEnter another number:");
-              try{
-                mathStuff.y = scan.nextLong();
-               } catch (Exception InputMismatchException){
-                System.out.println("Incorrect input type. Defaulting to 1...");
-                mathStuff.y = 1;
-               }
+              mathStuff.y = scan.nextLong();
               mathStuff.multiplyNumber();
               System.out.println(mathStuff.x);
               mathStuff.x = mathStuff.temp;
@@ -129,12 +78,7 @@ class Main {
 
             case 4:
               System.out.println("\nWhat number do you want to add up to?");
-              try{
-                mathStuff.summation(scan.nextInt());
-               } catch (Exception InputMismatchException){
-                System.out.println("Incorrect input type. Defaulting to 1...");
-                mathStuff.summation(1);
-               }
+              mathStuff.summation(scan.nextInt());
               System.out.println("All integers from 0 to that number added up is: " + mathStuff.x);
               break;
           }
