@@ -6,6 +6,7 @@ public class GameThing{
   String[][] ticTacToeBoard = {{"", "", ""}, {"", "", ""},{"", "", ""}};
   boolean isGameWonVar = false;
   boolean isLegalMoveVar = false;
+  boolean isBoardFullVar = false;
   byte playerTurn = 1;
   int[] nextMove = {0, 0};
 
@@ -63,6 +64,12 @@ public class GameThing{
           playerTurn = 1;
         }
 
+        //check if the board is full. if so, break out of the loop
+        isBoardFullFunction();
+        if(isBoardFullVar){
+          break;
+        }
+
         //check if anyone has won
         isGameWonFunction();
 
@@ -71,10 +78,14 @@ public class GameThing{
       }
 
       //someone won!
-      if(playerTurn == 1){
-        System.out.println("Player 2 has won!");
-      } else {
-        System.out.println("Player 1 has won!");
+      if(!isBoardFullVar){
+        if(playerTurn == 1){
+          System.out.println("Player 2 has won!");
+        } else {
+          System.out.println("Player 1 has won!");
+        }
+      }else{
+        System.out.println("Draw!");
       }
     }
 
@@ -92,10 +103,19 @@ public class GameThing{
 
   public void printBoard(){
     System.out.println(ticTacToeBoard[0][0] + " | " + ticTacToeBoard[0][1] + " | " + ticTacToeBoard[0][2]);
-    System.out.println("---------");
+    System.out.println("------");
     System.out.println(ticTacToeBoard[1][0] + " | " + ticTacToeBoard[1][1] + " | " + ticTacToeBoard[1][2]);
-    System.out.println("---------");
+    System.out.println("------");
     System.out.println(ticTacToeBoard[2][0] + " | " + ticTacToeBoard[2][1] + " | " + ticTacToeBoard[2][2]);
+  }
+
+  public void isBoardFullFunction(){
+    //dear lord, this if statement looks like a stroke
+    if(ticTacToeBoard[0][0] != "" && ticTacToeBoard[0][1] != "" && ticTacToeBoard[0][2] != "" && ticTacToeBoard[1][0] != "" && ticTacToeBoard[1][1] != "" && ticTacToeBoard[1][2] != "" && ticTacToeBoard[2][0] != "" && ticTacToeBoard[2][1] != "" && ticTacToeBoard[2][2] != ""){
+      isBoardFullVar = true;
+    } else {
+      isBoardFullVar = false;
+    }
   }
 
   public void isGameWonFunction(){
