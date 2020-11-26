@@ -6,3 +6,5 @@ this is just me messing around and learning Java. If you wanna look at it, sugge
 this is also me learning how to use GitHub, so if stuff looks weird or something, let me know.
 
 have a great day :^)
+
+repl.it page of the program: https://repl.it/@PotatoPost/PotatoPosts-Dumb-Programming-Thing#Main.java
