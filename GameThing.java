@@ -15,6 +15,7 @@ public class GameThing{
     System.out.println("Tic-Tac-Toe!");
       while(!isGameWonVar){
         //first-er we gotta print the heckin board
+        System.out.println();
         printBoard();
 
         //first find out who's turn it is
@@ -30,7 +31,7 @@ public class GameThing{
         //thats the magic of waterboarding
         while(!isLegalMoveVar){
           //prompt user for an input
-          System.out.println("Enter your move! (Format it like so: \"row,column\")\n(Due to the way programming works, rows and columns start at 0. So if you want to go in the top-right corner, you would input \"0,0\" and so on.)");
+          System.out.println("\nEnter your move! (Format it like so: \"row,column\")\n(Due to the way programming works, rows and columns start at 0. So if you want to go in the top-right corner, you would input \"0,0\" and so on.)");
 
           //get the next move, and hopefully split it into an array
           //with correct regex. how the hell do i even regex????
@@ -48,7 +49,7 @@ public class GameThing{
 
           //gonna let the user know they did a bad
           if(isLegalMoveVar == false){
-            System.out.println("That is an illegal move. Please enter a legal move.");
+            System.out.println("\nThat is an illegal move. Please enter a legal move.");
           }
         }
 
