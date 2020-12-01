@@ -10,7 +10,6 @@ public class StringJazz{
   
   public void randomSayings(){
     byte randomNum = (byte) Math.round(Math.random()*Sayings.length);
-    System.out.println(Sayings.length);
     System.out.println(Sayings[randomNum]);
   }
 }
