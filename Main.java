@@ -80,6 +80,7 @@ class Main {
               mathStuff.setValue(userInput, 1);
 
               System.out.println("\nEnter another number:");
+              validInput = false;
               while(!validInput){
                 try{
                   userInput = Integer.parseInt(scan.next());
@@ -99,6 +100,7 @@ class Main {
             //heck, most of this calculator stuff is just glorified jazz
             case 2:
               System.out.println("\nEnter a number:");
+              validInput = false;
               while(!validInput){
                 try{
                   userInput = Integer.parseInt(scan.next());
@@ -110,6 +112,7 @@ class Main {
               }
 
               System.out.println("\nWhat number do you want to add by?");
+              validInput = false;
               while(!validInput){
                 try{
                   adder = Integer.parseInt(scan.next());
@@ -122,6 +125,7 @@ class Main {
               mathStuff.thisFunctionThatIUseALot(userInput, adder, 1);
 
               System.out.println("\nEnter another number:");
+              validInput = false;
               while(!validInput){
                 try{
                   userInput = Integer.parseInt(scan.next());
@@ -133,6 +137,7 @@ class Main {
               }
 
               System.out.println("\nWhat Number do you want to add by?");
+              validInput = false;
               while(!validInput){
                 try{
                   adder = Integer.parseInt(scan.next());
@@ -154,6 +159,7 @@ class Main {
             //why the hell did i make a function for this
             case 3:
               System.out.println("\nEnter a number:");
+              validInput = false;
               while(!validInput){
                 try{
                   mathStuff.x = Integer.parseInt(scan.next());
@@ -165,6 +171,7 @@ class Main {
               }
 
               System.out.println("\nEnter another number:");
+              validInput = false;
               while(!validInput){
                 try{
                   mathStuff.y = Integer.parseInt(scan.next());
@@ -184,6 +191,7 @@ class Main {
             //see, i promise I'm smart!
             case 4:
               System.out.println("\nWhat number do you want to add up to?");
+              validInput = false;
               while(!validInput){
                 try{
                   mathStuff.summation(Integer.parseInt(scan.next()));
