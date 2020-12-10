@@ -1,45 +1,17 @@
 public class StringJazz{
 
+  String[] Sayings = {"What's updog?", "Your mom!", "H-Hey! This isn't Minecraft!", "osu moment", "Joe mama!", "nap time", "Middle school for me was like Alex Post", "On that Mario Galaxy 2 grind", "Beethoven's Ninth Symphony moment"};
+
+  //this function yells at you a lot
   public void yellFunction(String stringArg){
     for(int x = 0; x < stringArg.length(); x++){
       System.out.println("AAA");
     }
   }
   
-  /*potential sayings I can add:
-    On that mario galaxy 2 grind
-    references to classical music
-  */
+  //prints a random saying that i'd say
   public void randomSayings(){
-    byte randomNum = (byte) Math.round(Math.random()*6);
-    switch(randomNum){
-      case 0:
-        System.out.println("What's updog?");
-        break;
-      
-      case 1:
-        System.out.println("Your mom!");
-        break;
-
-      case 2:
-        System.out.println("H-Hey! This isn't Minecraft!");
-        break;
-
-      case 3:
-        System.out.println("osu moment");
-        break;
-
-      case 4:
-        System.out.println("Joe mama!");
-        break;
-
-      case 5:
-        System.out.println("nap time");
-        break;
-
-      case 6:
-        System.out.println("Middle school for me was like Alex Post");
-        break;
-    }
+    byte randomNum = (byte) Math.round(Math.random()*Sayings.length);
+    System.out.println(Sayings[randomNum]);
   }
 }

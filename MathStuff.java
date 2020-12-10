@@ -1,10 +1,11 @@
 public class MathStuff{
-  long x;
-  long y;
-  long temp;
+  int x;
+  int y;
+  int temp;
   //TYPE 1 = X, TYPE 2 = Y
 
-  public void setValue(long valArg, int type){
+  //just sets values of variables. pretty boring
+  public void setValue(int valArg, int type){
     switch(type){
       case 1:
         x = valArg;
@@ -16,7 +17,8 @@ public class MathStuff{
     }
   }
 
-  public void addNumber(long addNum, int type){
+  //adding numbers has never been so needlessly complicated!
+  public void addNumber(int addNum, int type){
     switch(type){
       case 1:
         x = x + addNum;
@@ -28,6 +30,7 @@ public class MathStuff{
     }
   }
 
+  //summation. pretty simple
   public void summation(int sumNum){
     x = 0;
     for(int i = 0; i < sumNum+1; i++){
@@ -35,17 +38,21 @@ public class MathStuff{
     }
   }
 
-  public void thisFunctionThatIUseALot(long valArg, long addNum, int type){ //I use this function a lot
+  //i use this function a lot
+  public void thisFunctionThatIUseALot(int valArg, int addNum, int type){
     setValue(valArg, type);
     addNumber(addNum, type);
     getValue(type);
   }
 
+  //overcomplicating multiplcation?
+  //wooo! hell yeah baby, that's what I'm talking about!
   public void multiplyNumber(){
     temp = x;
     x = x * y;
   }
 
+  //just prints out what stuff is what
   public void getValue(int type){
     switch(type){
       case 1:
