@@ -20,77 +20,38 @@ class Main {
     Scanner scan = new Scanner(System.in);
     StringJazz stringJazz = new StringJazz();
     GameThing gameThing = new GameThing();
+    InputChecker inputChecker = new InputChecker();
 
-    int userInput = 0; // this is the thing the scanner object uses to get the input
-    int adder = 0; // this is what we add (look at case 2)
     int imStupid; // this variable is because i was stupid and concatenated two numbers together.
-    byte programType = 0; // this variable is used to determine what the program is gonna do. like, you know, it chooses the stuff. you know.
     String stringThing = ""; // its a string thing
     boolean continueLoop = true; // determines if we want to continue the loop or not
-    boolean validInput = false; //checks to make sure the user inputs a string when we want a string, int when we want int, etc.
 
     try {
       //continue the loop while the user keeps putting in "true"
       while (continueLoop) {
         System.out.println("\nSelect what you want to do (Enter the number):\n1.)Calculator Stuff\n2.)Cool Things with Strings™\n3.)Epic Gaming");
 
-        //input check. i promise, eventually I'll put this into a function so it's simpler.
-        //pinky promise
-        validInput = false;
-        while(!validInput){
-          try{
-            programType = Byte.parseByte(scan.next());
-            validInput = true;
-          } catch (Exception InputMismatchException){
-            System.out.println("Please enter an integer.");
-            validInput = false;
-          }
-        }
+        //checks user input to make sure its good
+        //see, i told you i'd make it simpler
+        inputChecker.inputChecking((byte) 1);
 
         //switch case for which option the user wants to do
-        switch (programType) {
+        switch (inputChecker.programType) {
         case 1:
           System.out.println("\nSelect what you want to do (Enter the number):\n1.)Add two numbers\n2.)Add two numbers, but even cooler\n3.)Multiply two numbers\n4.)Summation");
 
-          validInput = false;
-          while(!validInput){
-            try{
-              programType = Byte.parseByte(scan.next());
-              validInput = true;
-            } catch (Exception InputMismatchException){
-              System.out.println("Please enter an integer.");
-              validInput = false;
-            }
-          }
+          inputChecker.inputChecking((byte) 1);
 
-          switch (programType) {
+          switch (inputChecker.programType) {
             case 1:
               //this complicated mess asks for two numbers and adds them together
               System.out.println("\nEnter a number:");
-              validInput = false;
-              while(!validInput){
-                try{
-                  userInput = Integer.parseInt(scan.next());
-                  validInput = true;
-                } catch (Exception InputMismatchException){
-                  System.out.println("Please enter an integer.");
-                  validInput = false;
-                }
-              }
-              mathStuff.setValue(userInput, 1);
+              inputChecker.inputChecking((byte) 2);
+              mathStuff.setValue(inputChecker.userInput, 1);
 
               System.out.println("\nEnter another number:");
-              validInput = false;
-              while(!validInput){
-                try{
-                  userInput = Integer.parseInt(scan.next());
-                  validInput = true;
-                } catch (Exception InputMismatchException){
-                  System.out.println("Please enter an integer.");
-                  validInput = false;
-                }
-              }
-              mathStuff.setValue(userInput, 2);
+              inputChecker.inputChecking((byte) 2);
+              mathStuff.setValue(inputChecker.userInput, 2);
 
               imStupid = mathStuff.x + mathStuff.y;
               System.out.println("\nThe two numbers added together are: " + imStupid);
@@ -100,54 +61,18 @@ class Main {
             //heck, most of this calculator stuff is just glorified jazz
             case 2:
               System.out.println("\nEnter a number:");
-              validInput = false;
-              while(!validInput){
-                try{
-                  userInput = Integer.parseInt(scan.next());
-                  validInput = true;
-                } catch (Exception InputMismatchException){
-                  System.out.println("Please enter an integer.");
-                  validInput = false;
-                }
-              }
+              inputChecker.inputChecking((byte) 2);
 
               System.out.println("\nWhat number do you want to add by?");
-              validInput = false;
-              while(!validInput){
-                try{
-                  adder = Integer.parseInt(scan.next());
-                  validInput = true;
-                } catch (Exception InputMismatchException){
-                  System.out.println("Please enter an integer.");
-                  validInput = false;
-                }
-              }
-              mathStuff.thisFunctionThatIUseALot(userInput, adder, 1);
+              inputChecker.inputChecking((byte) 3);
+              mathStuff.thisFunctionThatIUseALot(inputChecker.userInput, inputChecker.adder, 1);
 
               System.out.println("\nEnter another number:");
-              validInput = false;
-              while(!validInput){
-                try{
-                  userInput = Integer.parseInt(scan.next());
-                  validInput = true;
-                } catch (Exception InputMismatchException){
-                  System.out.println("Please enter an integer.");
-                  validInput = false;
-                }
-              }
+              inputChecker.inputChecking((byte) 2);
 
               System.out.println("\nWhat Number do you want to add by?");
-              validInput = false;
-              while(!validInput){
-                try{
-                  adder = Integer.parseInt(scan.next());
-                  validInput = true;
-                } catch (Exception InputMismatchException){
-                  System.out.println("Please enter an integer.");
-                  validInput = false;
-                }
-              }
-              mathStuff.thisFunctionThatIUseALot(userInput, adder, 2);
+              inputChecker.inputChecking((byte) 3);
+              mathStuff.thisFunctionThatIUseALot(inputChecker.userInput, inputChecker.adder, 2);
 
               imStupid = mathStuff.x + mathStuff.y;
               System.out.println("The two numbers added together are: " + imStupid);
@@ -159,28 +84,12 @@ class Main {
             //why the hell did i make a function for this
             case 3:
               System.out.println("\nEnter a number:");
-              validInput = false;
-              while(!validInput){
-                try{
-                  mathStuff.x = Integer.parseInt(scan.next());
-                  validInput = true;
-                } catch (Exception InputMismatchException){
-                  System.out.println("Please enter an integer.");
-                  validInput = false;
-                }
-              }
+              inputChecker.inputChecking((byte) 4);
+              mathStuff.x = inputChecker.returnVar;
 
               System.out.println("\nEnter another number:");
-              validInput = false;
-              while(!validInput){
-                try{
-                  mathStuff.y = Integer.parseInt(scan.next());
-                  validInput = true;
-                } catch (Exception InputMismatchException){
-                  System.out.println("Please enter an integer.");
-                  validInput = false;
-                }
-              }
+              inputChecker.inputChecking((byte) 4);
+              mathStuff.y = inputChecker.returnVar;
 
               mathStuff.multiplyNumber();
               System.out.println(mathStuff.x);
@@ -191,16 +100,8 @@ class Main {
             //see, i promise I'm smart!
             case 4:
               System.out.println("\nWhat number do you want to add up to?");
-              validInput = false;
-              while(!validInput){
-                try{
-                  mathStuff.summation(Integer.parseInt(scan.next()));
-                  validInput = true;
-                } catch (Exception InputMismatchException){
-                  System.out.println("Please enter an integer.");
-                  validInput = false;
-                }
-              }
+              inputChecker.inputChecking((byte) 4);
+              mathStuff.summation(inputChecker.returnVar);
               System.out.println("All integers from 0 to that number added up is: " + mathStuff.x);
               break;
           }
@@ -210,18 +111,9 @@ class Main {
         case 2:
           System.out.println("\nSelect what you want to do (Enter the number):\n1.)Idk how to describe this one, it just yells at you a bunch\n2.)Display the date\n3.)Prints a random thing that I would say");
 
-          validInput = false;
-          while(!validInput){
-            try{
-              programType = Byte.parseByte(scan.next());
-              validInput = true;
-            } catch (Exception InputMismatchException){
-              System.out.println("Please enter an integer.");
-              validInput = false;
-            }
-          }
+          inputChecker.inputChecking((byte) 1);
 
-          switch (programType) {
+          switch (inputChecker.programType) {
           //yell function.
           //never before has yelling been so amazing.
           case 1:
@@ -250,18 +142,9 @@ class Main {
           //gaming stuff
           case 3:
           System.out.println("\nSelect what you want to do (Enter the number):\n1.)Play Tic-Tac-Toe!");
-          validInput = false;
-          while(!validInput){
-            try{
-              programType = Byte.parseByte(scan.next());
-              validInput = true;
-            } catch (Exception InputMismatchException){
-              System.out.println("Please enter an integer.");
-              validInput = false;
-            }
-          }
+          inputChecker.inputChecking((byte) 1);
           
-          switch(programType){
+          switch(inputChecker.programType){
             case 1:
               //i made tic-tac-toe! heck yeah fellas!
               gameThing.ticTacToe();
