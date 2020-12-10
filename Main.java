@@ -24,11 +24,10 @@ class Main {
 
     int imStupid; // this variable is because i was stupid and concatenated two numbers together.
     String stringThing = ""; // its a string thing
-    boolean continueLoop = true; // determines if we want to continue the loop or not
 
     try {
       //continue the loop while the user keeps putting in "true"
-      while (continueLoop) {
+      while (inputChecker.continueLoop) {
         System.out.println("\nSelect what you want to do (Enter the number):\n1.)Calculator Stuff\n2.)Cool Things with Strings™\n3.)Epic Gaming");
 
         //checks user input to make sure its good
@@ -160,7 +159,7 @@ class Main {
         }
         //ask if the user wants to continue or not
         System.out.println("If you want to continue, type \"true\". Otherwise, type \"false\".");
-        continueLoop = scan.nextBoolean();
+        inputChecker.inputChecking((byte) 5)
       }
     } finally {
       //close the scanner because otherwise it yells at me
