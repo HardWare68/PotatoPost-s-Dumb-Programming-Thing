@@ -159,7 +159,7 @@ class Main {
         }
         //ask if the user wants to continue or not
         System.out.println("If you want to continue, type \"true\". Otherwise, type \"false\".");
-        inputChecker.inputChecking((byte) 5)
+        inputChecker.inputChecking((byte) 5);
       }
     } finally {
       //close the scanner because otherwise it yells at me
