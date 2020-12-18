@@ -32,7 +32,7 @@ public class GameThing{
         //thats the magic of waterboarding
         while(!isLegalMoveVar){
           //prompt user for an input
-          System.out.println("\nEnter your move! (Format it like so: \"row,column\")\n(Due to the way programming works, rows and columns start at 0. So if you want to go in the top-right corner, you would input \"0,0\" and so on.)");
+          System.out.println("\nEnter your move! (Format it like so: \"row,column\")\n(Due to the way programming works, rows and columns start at 0. So if you want to go in the top-left corner, you would input \"0,0\" and so on.)");
 
           //get the next move, and hopefully split it into an array
           //with correct regex. how the hell do i even regex????
