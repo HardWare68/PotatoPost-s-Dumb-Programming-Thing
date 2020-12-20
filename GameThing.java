@@ -170,8 +170,16 @@ public class GameThing{
   int miningGoldRange = maxMiningGold - minMiningGold + 1; //the range of gold that can be made from the mineGold function
   int goldGained; //how much gold was gained from the mineGold function
 
+  long lastUpdate = System.currentTimeMillis(); //when the last time the idle game was updated
+  long timeDifference; //what the time difference between the last update and current update would be
+
+  short numberOfAutoMiners = 0; //auto miners mine for you! wow!
+  
+  int goldPerSecond = 5; //gold per second
+
+
   public void idleGame(){
-    //should loop while they dont select 127
+    //loop while they dont select 127
     while(inputChecker.programType != 127){
 
       //ask the user what they wanna do
@@ -184,16 +192,25 @@ public class GameThing{
         case 1:
           mineGold();
           break;
-          
+
       }
     }
   }
 
+  //updates gold
+  public void updateGold(){
+    timeDifference = (System.currentTimeMillis() - lastUpdate) / 1000;
+    lastUpdate = System.currentTimeMillis();
+    totalGold = totalGold + (timeDifference * goldPerSecond);
+  }
+
+  //this function increments totalGold by a random number
   public void mineGold(){
     System.out.println("Mining for gold...");
     goldGained = (int)(Math.random() * miningGoldRange) + minMiningGold;
     totalGold = totalGold + goldGained;
     System.out.println("You made " + goldGained + " gold!");
+    updateGold();
     System.out.println("Total gold is now: " + totalGold);
   }
 }
