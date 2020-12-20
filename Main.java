@@ -146,7 +146,7 @@ class Main {
 
           //gaming stuff
           case 3:
-          System.out.println("\nSelect what you want to do (Enter the number):\n1.)Play Tic-Tac-Toe!");
+          System.out.println("\nSelect what you want to do (Enter the number):\n1.)Play Tic-Tac-Toe!\n2.)Idle game!");
           inputChecker.inputChecking((byte) 1);
           
           switch(inputChecker.programType){
@@ -154,6 +154,10 @@ class Main {
               //i made tic-tac-toe! heck yeah fellas!
               gameThing.ticTacToe();
               break;
+
+            case 2:
+              //its a simple idle game. real simple.
+              gameThing.idleGame();
           }
           break;
         }

@@ -1,5 +1,6 @@
 import java.util.Scanner;
-
+import java.lang.Math;
+import java.time.LocalTime;
 
 //whats up diggity dogs, we actually commenting code
 public class GameThing{
@@ -11,7 +12,10 @@ public class GameThing{
   int[] nextMove = {0, 0};
 
   Scanner scan = new Scanner(System.in);
+  InputChecker inputChecker = new InputChecker();
 
+
+// /!\ START OF TIC-TAC-TOE CODE /!\
   public void ticTacToe(){
     System.out.println("Tic-Tac-Toe!");
       while(!isGameWonVar){
@@ -155,5 +159,41 @@ public class GameThing{
       isGameWonVar = false;
     }
     //im so sorry to all my programming friends who had to scroll through a thousand if statements
-  }  
+  }
+
+  // /!\ END OF ALL TIC-TAC-TOE CODE /!\
+
+  // /!\ START OF IDLE GAME CODE /!\
+  long totalGold = 0; //total gold
+  int minMiningGold = 1; //minimum amount of gold that can be made from the mineGold() function
+  int maxMiningGold = 10; //maximum amount of gold that can be made from the mineGold() function
+  int miningGoldRange = maxMiningGold - minMiningGold + 1; //the range of gold that can be made from the mineGold function
+  int goldGained; //how much gold was gained from the mineGold function
+
+  public void idleGame(){
+    //should loop while they dont select 127
+    while(inputChecker.programType != 127){
+
+      //ask the user what they wanna do
+      System.out.println("\nSelect what you want to do(Enter the number):\n1.)Mine for gold\n127.)Exit");
+      inputChecker.inputChecking((byte) 1);
+
+      //selecct what they wanna do
+      switch(inputChecker.programType){
+        //mine gold
+        case 1:
+          mineGold();
+          break;
+          
+      }
+    }
+  }
+
+  public void mineGold(){
+    System.out.println("Mining for gold...");
+    goldGained = (int)(Math.random() * miningGoldRange) + minMiningGold;
+    totalGold = totalGold + goldGained;
+    System.out.println("You made " + goldGained + " gold!");
+    System.out.println("Total gold is now: " + totalGold);
+  }
 }
