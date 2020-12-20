@@ -174,6 +174,7 @@ public class GameThing{
   long timeDifference; //what the time difference between the last update and current update would be
 
   short numberOfAutoMiners = 0; //auto miners mine for you! wow!
+  int autoMinerPrice = 50; //price of the auto miners
   
   int goldPerSecond = 5; //gold per second
 
@@ -183,7 +184,7 @@ public class GameThing{
     while(inputChecker.programType != 127){
 
       //ask the user what they wanna do
-      System.out.println("\nSelect what you want to do(Enter the number):\n1.)Mine for gold\n127.)Exit");
+      System.out.println("\nSelect what you want to do (Enter the number):\n1.)Mine for gold\n127.)Exit");
       inputChecker.inputChecking((byte) 1);
 
       //selecct what they wanna do
@@ -202,6 +203,22 @@ public class GameThing{
     timeDifference = (System.currentTimeMillis() - lastUpdate) / 1000;
     lastUpdate = System.currentTimeMillis();
     totalGold = totalGold + (timeDifference * goldPerSecond);
+  }
+
+  public void buyStuff(){
+    //just used to reset the program checker variable
+    inputChecker.resetVars();
+
+    while(inputChecker.programType != 127){
+      System.out.println("\nWhat do you want to buy (Enter the number):\n1.)Auto Miner. Cost:" + autoMinerPrice + " gold.\n127.)Exit");
+      inputChecker.inputChecking((byte) 1);
+
+      switch(inputChecker.programType){
+        case 1:
+          //here you go
+          break;
+      }
+    }
   }
 
   //this function increments totalGold by a random number

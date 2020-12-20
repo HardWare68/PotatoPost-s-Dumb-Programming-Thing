@@ -12,6 +12,15 @@ public class InputChecker{
   Scanner scan = new Scanner(System.in);
   MathStuff mathStuff = new MathStuff();
 
+  public void resetVars(){
+    validInput = false;
+    programType = 0;
+    userInput = 0;
+    adder = 0;
+    returnVar = 0;
+    continueLoop = true;
+  }
+
   public void inputChecking(byte checkType){
     switch(checkType){
 
