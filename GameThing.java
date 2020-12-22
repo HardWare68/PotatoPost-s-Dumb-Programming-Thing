@@ -170,13 +170,13 @@ public class GameThing{
   int miningGoldRange = maxMiningGold - minMiningGold + 1; //the range of gold that can be made from the mineGold function
   int goldGained; //how much gold was gained from the mineGold function
 
-  long lastUpdate = System.currentTimeMillis(); //when the last time the idle game was updated
+  long lastUpdate; //when the last time the idle game was updated
   long timeDifference; //what the time difference between the last update and current update would be
 
-  short numberOfAutoMiners = 0; //auto miners mine for you! wow!
+  short autoMiners = 0; //auto miners mine for you! wow!
   int autoMinerPrice = 50; //price of the auto miners
   
-  int goldPerSecond = 5; //gold per second
+  int goldPerSecond = 0; //gold per second
 
 
   public void idleGame(){
@@ -187,7 +187,7 @@ public class GameThing{
     while(inputChecker.programType != 127){
 
       //ask the user what they wanna do
-      System.out.println("\nSelect what you want to do (Enter the number):\n1.)Mine for gold\n2.)Check how much gold you have\n127.)Exit");
+      System.out.println("\nSelect what you want to do (Enter the number):\n1.)Mine for gold\n2.)Check how much gold you have\n3.)Shop\n127.)Exit");
       inputChecker.inputChecking((byte) 1);
 
       //selecct what they wanna do
@@ -201,6 +201,9 @@ public class GameThing{
           goldReturnValueThingy();
           break;
 
+        case 3:
+          buyStuff();
+          break;
       }
     }
   }
@@ -216,7 +219,7 @@ public class GameThing{
   //returns how much gold you have
   //shoutout to the github issue! https://github.com/HardWare68/PotatoPost-s-Dumb-Programming-Thing/issues/17
   public void goldReturnValueThingy(){
-    System.out.println("You have " + totalGold + " gold!");
+    System.out.println("\nYou have " + totalGold + " gold!");
     updateGold();
   }
 
@@ -224,22 +227,48 @@ public class GameThing{
     //just used to reset the program checker variable
     inputChecker.resetVars();
 
-
+    //loop while they dont put in 127
     while(inputChecker.programType != 127){
-      System.out.println("\nWhat do you want to buy (Enter the number):\n1.)Auto Miner. Cost:" + autoMinerPrice + " gold.\n127.)Exit");
+
+      //the good ol' "ask what they want and do that"
+      System.out.println("\nWhat do you want to buy (Enter the number):\n1.)Auto Miner. Cost: " + autoMinerPrice + " gold.\n127.)Exit");
       inputChecker.inputChecking((byte) 1);
 
       switch(inputChecker.programType){
+
+        //auto miner stuff
         case 1:
-          //here you go
+
+          //if they have enough gold to afford an autominer
+          if(totalGold >= autoMinerPrice){
+            //update variables
+            autoMiners += 1;
+            totalGold -= autoMinerPrice;
+            goldPerSecond += 5;
+            autoMinerPrice = (int) Math.round(1.5 * autoMinerPrice);
+
+            updateGold();
+            System.out.println("\nSuccess! You now have " + totalGold + " gold and " + autoMiners + " Auto Miners!");
+          } else {
+            //how you look trying to buy stuff you dont have enough money for
+            System.out.println("\nUh oh! You don't have enough gold!");
+          }
           break;
+      
       }
+
+      //if i put this thing in enough spots the program will work
+      updateGold();
     }
+
+    //reset variables before returning to the main idle game loop (and update gold as well)
+    inputChecker.resetVars();
+    updateGold();
   }
 
   //this function increments totalGold by a random number
   public void mineGold(){
-    System.out.println("Mining for gold...");
+    System.out.println("\nMining for gold...");
     goldGained = (int)(Math.random() * miningGoldRange) + minMiningGold;
     totalGold = totalGold + goldGained;
     System.out.println("You made " + goldGained + " gold!");
