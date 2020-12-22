@@ -107,7 +107,6 @@ public class GameThing{
     isLegalMoveVar = false;
     isBoardFullVar = false;
     playerTurn = 1;
-    int[] nextMove = {0, 0};
   }
 
   public void isLegalMove(int[] nextMoveParam){
