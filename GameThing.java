@@ -180,11 +180,14 @@ public class GameThing{
 
 
   public void idleGame(){
+    //reset programType, otherwise program breaks
+    inputChecker.resetVars();
+
     //loop while they dont select 127
     while(inputChecker.programType != 127){
 
       //ask the user what they wanna do
-      System.out.println("\nSelect what you want to do (Enter the number):\n1.)Mine for gold\n127.)Exit");
+      System.out.println("\nSelect what you want to do (Enter the number):\n1.)Mine for gold\n2.)Check how much gold you have\n127.)Exit");
       inputChecker.inputChecking((byte) 1);
 
       //selecct what they wanna do
@@ -192,6 +195,10 @@ public class GameThing{
         //mine gold
         case 1:
           mineGold();
+          break;
+
+        case 2:
+          goldReturnValueThingy();
           break;
 
       }
@@ -205,9 +212,18 @@ public class GameThing{
     totalGold = totalGold + (timeDifference * goldPerSecond);
   }
 
+
+  //returns how much gold you have
+  //shoutout to the github issue! https://github.com/HardWare68/PotatoPost-s-Dumb-Programming-Thing/issues/17
+  public void goldReturnValueThingy(){
+    System.out.println("You have " + totalGold + " gold!");
+    updateGold();
+  }
+
   public void buyStuff(){
     //just used to reset the program checker variable
     inputChecker.resetVars();
+
 
     while(inputChecker.programType != 127){
       System.out.println("\nWhat do you want to buy (Enter the number):\n1.)Auto Miner. Cost:" + autoMinerPrice + " gold.\n127.)Exit");
