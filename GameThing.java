@@ -17,6 +17,10 @@ public class GameThing{
 
 // /!\ START OF TIC-TAC-TOE CODE /!\
   public void ticTacToe(){
+
+    //reset the board so that if someone is trying to play multiple times, it wont not work.
+    resetBoard();
+
     System.out.println("Tic-Tac-Toe!");
       while(!isGameWonVar){
         //first-er we gotta print the heckin board
@@ -44,7 +48,7 @@ public class GameThing{
           try {
             nextMove[0] = Integer.parseInt(nextMoveOne[0]);
             nextMove[1] = Integer.parseInt(nextMoveOne[1]);
-          } catch (NumberFormatException e) {
+          } catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {
             isLegalMoveVar = false;
             continue;
           }
@@ -68,14 +72,14 @@ public class GameThing{
           playerTurn = 1;
         }
 
+        //check if anyone has won
+        isGameWonFunction();
+
         //check if the board is full. if so, break out of the loop
         isBoardFullFunction();
         if(isBoardFullVar){
           break;
         }
-
-        //check if anyone has won
-        isGameWonFunction();
 
         //reset the legality stuff, because otherwise it gets caught in a loop
         isLegalMoveVar = false;
@@ -92,6 +96,19 @@ public class GameThing{
         System.out.println("Draw!");
       }
     }
+
+  public void resetBoard(){
+    for(int x = 0; x < ticTacToeBoard.length; x++){
+      for(int y = 0; y < ticTacToeBoard[x].length; y++){
+        ticTacToeBoard[x][y] = "";
+      }
+    }
+    isGameWonVar = false;
+    isLegalMoveVar = false;
+    isBoardFullVar = false;
+    playerTurn = 1;
+    int[] nextMove = {0, 0};
+  }
 
   public void isLegalMove(int[] nextMoveParam){
     try{
