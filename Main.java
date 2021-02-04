@@ -24,11 +24,10 @@ class Main {
 
     int imStupid; // this variable is because i was stupid and concatenated two numbers together.
     String stringThing = ""; // its a string thing
-    boolean continueLoop = true; // determines if we want to continue the loop or not
 
     try {
       //continue the loop while the user keeps putting in "true"
-      while (continueLoop) {
+      while (inputChecker.continueLoop) {
         System.out.println("\nSelect what you want to do (Enter the number):\n1.)Calculator Stuff\n2.)Cool Things with Strings™\n3.)Epic Gaming");
 
         //checks user input to make sure its good
@@ -109,7 +108,7 @@ class Main {
 
         //this is just random stuff with strings
         case 2:
-          System.out.println("\nSelect what you want to do (Enter the number):\n1.)Idk how to describe this one, it just yells at you a bunch\n2.)Display the date\n3.)Prints a random thing that I would say");
+          System.out.println("\nSelect what you want to do (Enter the number):\n1.)Idk how to describe this one, it just yells at you a bunch\n2.)Display the date\n3.)Prints a random thing that I would say\n4.)Based.");
 
           inputChecker.inputChecking((byte) 1);
 
@@ -136,12 +135,18 @@ class Main {
           case 3:
             stringJazz.randomSayings();
             break;
+
+          //based and programmingpilled.
+          case 4:
+            System.out.println("\nEnter a string: ");
+            stringThing = scan.next();
+            stringJazz.basedFunction(stringThing);
           }
           break;
 
           //gaming stuff
           case 3:
-          System.out.println("\nSelect what you want to do (Enter the number):\n1.)Play Tic-Tac-Toe!");
+          System.out.println("\nSelect what you want to do (Enter the number):\n1.)Play Tic-Tac-Toe!\n2.)Idle game!");
           inputChecker.inputChecking((byte) 1);
           
           switch(inputChecker.programType){
@@ -149,12 +154,16 @@ class Main {
               //i made tic-tac-toe! heck yeah fellas!
               gameThing.ticTacToe();
               break;
+
+            case 2:
+              //its a simple idle game. real simple.
+              gameThing.idleGame();
           }
           break;
         }
         //ask if the user wants to continue or not
         System.out.println("If you want to continue, type \"true\". Otherwise, type \"false\".");
-        continueLoop = scan.nextBoolean();
+        inputChecker.inputChecking((byte) 5);
       }
     } finally {
       //close the scanner because otherwise it yells at me

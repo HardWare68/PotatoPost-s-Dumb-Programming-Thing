@@ -14,4 +14,8 @@ public class StringJazz{
     byte randomNum = (byte) Math.round(Math.random()*Sayings.length);
     System.out.println(Sayings[randomNum]);
   }
+
+  public void basedFunction(String stringArg){
+    System.out.println("Based and " + stringArg + "pilled.");
+  }
 }

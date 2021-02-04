@@ -1,5 +1,6 @@
 import java.util.Scanner;
-
+import java.lang.Math;
+import java.time.LocalTime;
 
 //whats up diggity dogs, we actually commenting code
 public class GameThing{
@@ -11,8 +12,15 @@ public class GameThing{
   int[] nextMove = {0, 0};
 
   Scanner scan = new Scanner(System.in);
+  InputChecker inputChecker = new InputChecker();
 
+
+// /!\ START OF TIC-TAC-TOE CODE /!\
   public void ticTacToe(){
+
+    //reset the board so that if someone is trying to play multiple times, it wont not work.
+    resetBoard();
+
     System.out.println("Tic-Tac-Toe!");
       while(!isGameWonVar){
         //first-er we gotta print the heckin board
@@ -32,7 +40,7 @@ public class GameThing{
         //thats the magic of waterboarding
         while(!isLegalMoveVar){
           //prompt user for an input
-          System.out.println("\nEnter your move! (Format it like so: \"row,column\")\n(Due to the way programming works, rows and columns start at 0. So if you want to go in the top-right corner, you would input \"0,0\" and so on.)");
+          System.out.println("\nEnter your move! (Format it like so: \"row,column\")\n(Due to the way programming works, rows and columns start at 0. So if you want to go in the top-left corner, you would input \"0,0\" and so on.)");
 
           //get the next move, and hopefully split it into an array
           //with correct regex. how the hell do i even regex????
@@ -40,7 +48,7 @@ public class GameThing{
           try {
             nextMove[0] = Integer.parseInt(nextMoveOne[0]);
             nextMove[1] = Integer.parseInt(nextMoveOne[1]);
-          } catch (NumberFormatException e) {
+          } catch (NumberFormatException | ArrayIndexOutOfBoundsException e) {
             isLegalMoveVar = false;
             continue;
           }
@@ -64,14 +72,14 @@ public class GameThing{
           playerTurn = 1;
         }
 
+        //check if anyone has won
+        isGameWonFunction();
+
         //check if the board is full. if so, break out of the loop
         isBoardFullFunction();
         if(isBoardFullVar){
           break;
         }
-
-        //check if anyone has won
-        isGameWonFunction();
 
         //reset the legality stuff, because otherwise it gets caught in a loop
         isLegalMoveVar = false;
@@ -88,6 +96,18 @@ public class GameThing{
         System.out.println("Draw!");
       }
     }
+
+  public void resetBoard(){
+    for(int x = 0; x < ticTacToeBoard.length; x++){
+      for(int y = 0; y < ticTacToeBoard[x].length; y++){
+        ticTacToeBoard[x][y] = "";
+      }
+    }
+    isGameWonVar = false;
+    isLegalMoveVar = false;
+    isBoardFullVar = false;
+    playerTurn = 1;
+  }
 
   public void isLegalMove(int[] nextMoveParam){
     try{
@@ -155,5 +175,120 @@ public class GameThing{
       isGameWonVar = false;
     }
     //im so sorry to all my programming friends who had to scroll through a thousand if statements
-  }  
+  }
+
+  // /!\ END OF ALL TIC-TAC-TOE CODE /!\
+
+  // /!\ START OF IDLE GAME CODE /!\
+  long totalGold = 0; //total gold
+  int minMiningGold = 1; //minimum amount of gold that can be made from the mineGold() function
+  int maxMiningGold = 10; //maximum amount of gold that can be made from the mineGold() function
+  int miningGoldRange = maxMiningGold - minMiningGold + 1; //the range of gold that can be made from the mineGold function
+  int goldGained; //how much gold was gained from the mineGold function
+
+  long lastUpdate; //when the last time the idle game was updated
+  long timeDifference; //what the time difference between the last update and current update would be
+
+  short autoMiners = 0; //auto miners mine for you! wow!
+  int autoMinerPrice = 50; //price of the auto miners
+  
+  int goldPerSecond = 0; //gold per second
+
+
+  public void idleGame(){
+    //reset programType, otherwise program breaks
+    inputChecker.resetVars();
+
+    //loop while they dont select 127
+    while(inputChecker.programType != 127){
+
+      //ask the user what they wanna do
+      System.out.println("\nSelect what you want to do (Enter the number):\n1.)Mine for gold\n2.)Check how much gold you have\n3.)Shop\n127.)Exit");
+      inputChecker.inputChecking((byte) 1);
+
+      //selecct what they wanna do
+      switch(inputChecker.programType){
+        //mine gold
+        case 1:
+          mineGold();
+          break;
+
+        case 2:
+          goldReturnValueThingy();
+          break;
+
+        case 3:
+          buyStuff();
+          break;
+      }
+    }
+  }
+
+  //updates gold
+  public void updateGold(){
+    timeDifference = (System.currentTimeMillis() - lastUpdate) / 1000;
+    lastUpdate = System.currentTimeMillis();
+    totalGold = totalGold + (timeDifference * goldPerSecond);
+  }
+
+
+  //returns how much gold you have
+  //shoutout to the github issue! https://github.com/HardWare68/PotatoPost-s-Dumb-Programming-Thing/issues/17
+  public void goldReturnValueThingy(){
+    System.out.println("\nYou have " + totalGold + " gold!");
+    updateGold();
+  }
+
+  public void buyStuff(){
+    //just used to reset the program checker variable
+    inputChecker.resetVars();
+
+    //loop while they dont put in 127
+    while(inputChecker.programType != 127){
+
+      //the good ol' "ask what they want and do that"
+      System.out.println("\nWhat do you want to buy (Enter the number):\n1.)Auto Miner. Cost: " + autoMinerPrice + " gold.\n127.)Exit");
+      inputChecker.inputChecking((byte) 1);
+
+      switch(inputChecker.programType){
+
+        //auto miner stuff
+        case 1:
+
+          //if they have enough gold to afford an autominer
+          if(totalGold >= autoMinerPrice){
+            //update variables
+            autoMiners += 1;
+            totalGold -= autoMinerPrice;
+            goldPerSecond += 5;
+            autoMinerPrice = (int) Math.round(1.5 * autoMinerPrice);
+
+            updateGold();
+            System.out.println("\nSuccess! You now have " + totalGold + " gold and " + autoMiners + " Auto Miners!");
+          } else {
+            //how you look trying to buy stuff you dont have enough money for
+            System.out.println("\nUh oh! You don't have enough gold!");
+          }
+          break;
+      
+      }
+
+      //if i put this thing in enough spots the program will work
+      updateGold();
+    }
+
+    //reset variables before returning to the main idle game loop (and update gold as well)
+    inputChecker.resetVars();
+    updateGold();
+  }
+
+  //this function increments totalGold by a random number
+  public void mineGold(){
+    System.out.println("\nMining for gold...");
+    goldGained = (int)(Math.random() * miningGoldRange) + minMiningGold;
+    totalGold = totalGold + goldGained;
+    System.out.println("You made " + goldGained + " gold!");
+    updateGold();
+    System.out.println("Total gold is now: " + totalGold);
+  }
 }

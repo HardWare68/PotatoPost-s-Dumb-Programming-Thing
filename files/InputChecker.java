@@ -7,9 +7,19 @@ public class InputChecker{
   int adder = 0; // this is what we add (look at case 2)
   int returnVar = 0; //this is my workaround because i had troubles referencing other variables in files
   //this will set it to whatever, then Main will use that variable for whatever
+  boolean continueLoop = true; // determines if we want to continue the loop or not
 
   Scanner scan = new Scanner(System.in);
   MathStuff mathStuff = new MathStuff();
+
+  public void resetVars(){
+    validInput = false;
+    programType = 0;
+    userInput = 0;
+    adder = 0;
+    returnVar = 0;
+    continueLoop = true;
+  }
 
   public void inputChecking(byte checkType){
     switch(checkType){
@@ -62,6 +72,20 @@ public class InputChecker{
           while(!validInput){
             try{
               returnVar = Integer.parseInt(scan.next());
+              validInput = true;
+            } catch (Exception InputMismatchException){
+              System.out.println("Please enter an integer.");
+              validInput = false;
+            }
+          }
+        break;
+
+        // /!\ CASE 5 CHECKS FOR BOOLS, AND PLACES IT INTO continueLoop /!\
+        case 5:
+        validInput = false;
+          while(!validInput){
+            try{
+              continueLoop = Boolean.parseBoolean(scan.next());
               validInput = true;
             } catch (Exception InputMismatchException){
               System.out.println("Please enter an integer.");
