@@ -108,7 +108,7 @@ class Main {
 
         //this is just random stuff with strings
         case 2:
-          System.out.println("\nSelect what you want to do (Enter the number):\n1.)Idk how to describe this one, it just yells at you a bunch\n2.)Display the date\n3.)Prints a random thing that I would say\n4.)Based.");
+          System.out.println("\nSelect what you want to do (Enter the number):\n1.)Idk how to describe this one, it just yells at you a bunch\n2.)Display the date\n3.)Prints a random thing that I would say\n4.)Based.\n5.)Prints a random joke");
 
           inputChecker.inputChecking((byte) 1);
 
@@ -141,6 +141,12 @@ class Main {
             System.out.println("\nEnter a string: ");
             stringThing = scan.next();
             stringJazz.basedFunction(stringThing);
+            break;
+
+          //random joke
+          case 5:
+            stringJazz.randomJoke();
+            break;
           }
           break;
 
