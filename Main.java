@@ -108,7 +108,7 @@ class Main {
 
         //this is just random stuff with strings
         case 2:
-          System.out.println("\nSelect what you want to do (Enter the number):\n1.)Idk how to describe this one, it just yells at you a bunch\n2.)Display the date\n3.)Prints a random thing that I would say\n4.)Based.\n5.)Prints a random joke");
+          System.out.println("\nSelect what you want to do (Enter the number):\n1.)Idk how to describe this one, it just yells at you a bunch\n2.)Display the date\n3.)Prints a random thing that I would say\n4.)Based.\n5.)Prints a random joke\n6.)Prints a random joke but it makes no sense");
 
           inputChecker.inputChecking((byte) 1);
 
@@ -146,6 +146,10 @@ class Main {
           //random joke
           case 5:
             stringJazz.randomJoke();
+            break;
+
+          case 6:
+            stringJazz.randomerJoke();
             break;
           }
           break;
